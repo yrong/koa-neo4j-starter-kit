@@ -1,0 +1,15 @@
+{
+  "name": "koa-neo4j-example",
+  "version": "0.1.0",
+  "description": "Example for koa-neo4j package",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa-neo4j": "^0.2.2"
+  }
+}
