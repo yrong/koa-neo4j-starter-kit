@@ -16,5 +16,5 @@ collect(
         WHEN profile.user_name="admin" THEN "admin" ELSE NULL
     END
 ) AS roles, person, profile
-RETURN {roles: roles,id: id(person), username: profile.user_name, first_name: person.first_name, last_name: person.last_name, salt: profile.password_hash}
+RETURN {roles: roles,id: id(person), username: profile.user_name, first_name: person.first_name, last_name: person.last_name, password_hash: profile.password_hash}
 
