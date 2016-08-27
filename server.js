@@ -1,20 +1,22 @@
 var koaNeo4jApp = require('koa-neo4j').default;
-var API = require('koa-neo4j').API;
 
 var app = koaNeo4jApp({
     apis: [
-        new API('GET', '/articles', './cypher/articles.cyp'),
-        new API('POST', '/articles', './cypher/articles.cyp', ['admin'], function (result) {
-            // Perform postprocessing on 'result' returned by executing the cypher query
-            // ...
-            return result;
-        })
+        {
+            method: 'GET',
+            route: '/articles',
+            cypherQueryFile: './cypher/articles.cyp'
+        },
+        {
+            method: 'POST',
+            route: '/articles',
+            cypherQueryFile: './cypher/articles.cyp'
+        }
     ],
     database: {
-        server: 'http://192.168.10.101:7474',
-        endpoint: '/db/data',
+        boltUrl: 'bolt://localhost',
         user: 'neo4j',
-        password: 'neo4j'
+        password: 'k'
     },
     authentication: {
         userQueryCypherFile: './cypher/auth.cyp',
@@ -22,6 +24,42 @@ var app = koaNeo4jApp({
         secret: 'secret'
     }
 });
+
+
+// You can use `defineAPI` for better code organisation
+
+var defineAPI = require('koa-neo4j').defineAPI;
+
+
+// Perform post processing on values return by the cypher query via `postProcess`
+
+defineAPI({
+    method: 'GET',
+    route: '/articles/processed',
+    cypherQueryFile: './cypher/articles.cyp',
+    postProcess: function (result) {
+        // Perform postprocessing on 'result' returned by executing the cypher query
+        result.push({extra:'record'});
+        // ...
+        return result;
+    }
+});
+
+
+// Routes can be guarded by role restriction using `allowedRoles`
+
+defineAPI({
+    method: 'POST',
+    route: '/articles/restricted',
+    cypherQueryFile: './cypher/articles.cyp',
+    allowedRoles: ['admin']
+});
+
+
+// `router` is a standard koa-router which could be utilised to expand server's functionality
+
+var router = require('koa-neo4j').router;
+// [koa-router](https://github.com/alexmingoia/koa-router)
 
 app.listen(3000, function () {
     console.log('App listening on port 3000.');
