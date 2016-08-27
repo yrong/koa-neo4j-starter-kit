@@ -4,7 +4,7 @@ var app = koaNeo4jApp({
     apis: [
         {
             method: 'GET',
-            route: '/articles',
+            route: '/articles/:skip/:limit',
             cypherQueryFile: './cypher/articles.cyp'
         },
         {
@@ -31,7 +31,7 @@ var app = koaNeo4jApp({
 var defineAPI = require('koa-neo4j').defineAPI;
 
 
-// Perform post processing on values return by the cypher query via `postProcess`
+// Perform post-processing on values return by the cypher query via `postProcess`
 
 defineAPI({
     method: 'GET',
