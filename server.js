@@ -13,13 +13,14 @@ var app = koaNeo4jApp({
             cypherQueryFile: './cypher/articles.cyp'
         }
     ],
-    database: {
+    neo4j: {
         boltUrl: 'bolt://localhost',
         user: 'neo4j',
         password: 'k'
     },
     authentication: {
-        userQueryCypherFile: './cypher/auth.cyp',
+        userCypherQueryFile: './cypher/user.cyp',
+        rolesCypherQueryFile: './cypher/roles.cyp',
         route: '/auth',
         secret: 'secret'
     }
