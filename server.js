@@ -60,7 +60,10 @@ defineAPI({
 // `router` is a standard koa-router which could be utilised to expand server's functionality
 
 var router = require('koa-neo4j').router;
-// [koa-router](https://github.com/alexmingoia/koa-router)
+// visit github.com/alexmingoia/koa-router FMI
+router.get('/noncypher', function *(next) {
+    this.body = "Using router you can do other things that don't need Cypher";
+});
 
 app.listen(3000, function () {
     console.log('App listening on port 3000.');
