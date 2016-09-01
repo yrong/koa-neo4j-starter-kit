@@ -1,6 +1,8 @@
-var koaNeo4jApp = require('koa-neo4j').default;
+var KoaNeo4jApp = require('koa-neo4j');
 
-var app = koaNeo4jApp({
+console.log(KoaNeo4jApp);
+
+var app = new KoaNeo4jApp({
     apis: [
         {
             method: 'GET',
@@ -27,14 +29,10 @@ var app = koaNeo4jApp({
 });
 
 
-// You can use `defineAPI` for better code organisation
-
-var defineAPI = require('koa-neo4j').defineAPI;
-
-
+// You can use `app.defineAPI` for better code organisation
 // Perform post-processing on values return by the cypher query via `postProcess`
 
-defineAPI({
+app.defineAPI({
     method: 'GET',
     route: '/articles/processed',
     cypherQueryFile: './cypher/articles.cyp',
@@ -49,22 +47,25 @@ defineAPI({
 
 // Routes can be guarded by role restriction using `allowedRoles`
 
-defineAPI({
+app.defineAPI({
     method: 'POST',
     route: '/articles/restricted',
+    preProcess: function (params) {
+        console.log(params);
+    },
     cypherQueryFile: './cypher/articles.cyp',
     allowedRoles: ['admin']
 });
 
 
-// `router` is a standard koa-router which could be utilised to expand server's functionality
-
-var router = require('koa-neo4j').router;
+// `app.router` is a standard koa-router which could be utilised to expand server's functionality
 // visit github.com/alexmingoia/koa-router FMI
-router.get('/noncypher', function *(next) {
-    this.body = "Using router you can do other things that don't need Cypher";
+
+app.router.get('/noncypher', function (ctx, next) {
+    ctx.body = "Using router you can do other things that don't need Cypher!";
+    return next();
 });
 
-app.listen(3000, function () {
-    console.log('App listening on port 3000.');
+app.listen(3001, function () {
+    console.log('App listening on port 3001.');
 });
