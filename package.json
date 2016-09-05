@@ -4,12 +4,12 @@
   "description": "Example for koa-neo4j package",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node $NODE_DEBUG_OPTION server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "koa-neo4j": "^0.4.11"
+    "koa-neo4j": "^0.4.25"
   }
 }

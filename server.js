@@ -19,12 +19,6 @@ var app = new KoaNeo4jApp({
         boltUrl: 'bolt://localhost',
         user: 'neo4j',
         password: 'k'
-    },
-    authentication: {
-        userCypherQueryFile: './cypher/user.cyp',
-        rolesCypherQueryFile: './cypher/roles.cyp',
-        route: '/auth',
-        secret: 'secret'
     }
 });
 
@@ -47,11 +41,21 @@ app.defineAPI({
 
 // Routes can be guarded by role restriction using `allowedRoles`
 
+app.configureAuthentication({
+    userCypherQueryFile: './cypher/user.cyp',
+        rolesCypherQueryFile: './cypher/roles.cyp',
+        route: '/auth',
+        secret: 'secret'
+});
+
 app.defineAPI({
     method: 'POST',
     route: '/articles/restricted',
     preProcess: function (params) {
-        console.log(params);
+        // Perform postprocessing on 'result' returned by executing the cypher query
+        params.extra = 'extra parameter!';
+        // ...
+        return params;
     },
     cypherQueryFile: './cypher/articles.cyp',
     allowedRoles: ['admin']
