@@ -24,7 +24,7 @@ var app = new KoaNeo4jApp({
 
 
 // You can use `app.defineAPI` for better code organisation
-// Perform post-processing on values return by the cypher query via `postProcess`
+// Perform post-processing on values return by the cypher query via `postProcess` lifecycle hook
 
 app.defineAPI({
     method: 'GET',
@@ -38,21 +38,23 @@ app.defineAPI({
     }
 });
 
-
+// Authentication and roles can be configured either by
+// supplying an `authentication` key in config or by `app.configureAuthentication
 // Routes can be guarded by role restriction using `allowedRoles`
+// Another lifecycle hook is `postProcess` which is demonstrated below
 
 app.configureAuthentication({
     userCypherQueryFile: './cypher/user.cyp',
-        rolesCypherQueryFile: './cypher/roles.cyp',
-        route: '/auth',
-        secret: 'secret'
+    rolesCypherQueryFile: './cypher/roles.cyp',
+    route: '/auth',
+    secret: 'secret'
 });
 
 app.defineAPI({
     method: 'POST',
     route: '/articles/restricted',
     preProcess: function (params) {
-        // Perform postprocessing on 'result' returned by executing the cypher query
+        // Perform prrprocessing on 'params' which will be given to the cypher query
         params.extra = 'extra parameter!';
         // ...
         return params;
