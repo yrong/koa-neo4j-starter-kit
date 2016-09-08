@@ -74,6 +74,6 @@ app.router.get('/noncypher', function (ctx, next) {
     return next();
 });
 
-app.listen(300, function () {
+app.listen(3000, function () {
     console.log('App listening on port 3000.');
 });
