@@ -39,9 +39,8 @@ app.defineAPI({
 });
 
 // Authentication and roles can be configured either by
-// supplying an `authentication` key in config or by `app.configureAuthentication
-// Routes can be guarded by role restriction using `allowedRoles`
-// Another lifecycle hook is `postProcess` which is demonstrated below
+// supplying an `authentication` key in options passed to KoaNeo4jApp's constructor
+// or by `app.configureAuthentication`
 
 app.configureAuthentication({
     userCypherQueryFile: './cypher/user.cyp',
@@ -49,6 +48,9 @@ app.configureAuthentication({
     route: '/auth',
     secret: 'secret'
 });
+
+// Routes can be guarded by role restriction using `allowedRoles`
+// Another lifecycle hook is `postProcess` which is demonstrated below
 
 app.defineAPI({
     method: 'POST',
@@ -72,6 +74,6 @@ app.router.get('/noncypher', function (ctx, next) {
     return next();
 });
 
-app.listen(3001, function () {
-    console.log('App listening on port 3001.');
+app.listen(300, function () {
+    console.log('App listening on port 3000.');
 });
