@@ -10,6 +10,6 @@
   "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "koa-neo4j": "^0.4.32"
+    "koa-neo4j": "^0.4.40"
   }
 }
