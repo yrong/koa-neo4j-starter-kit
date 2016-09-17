@@ -58,7 +58,7 @@ app.defineAPI({
     method: 'POST',
     route: '/articles/restricted',
     preProcess: function (params) {
-        // Perform prrprocessing on 'params' which will be given to the cypher query
+        // Perform preprocessing on 'params' which will be given to the cypher query
         params.extra = 'extra parameter!';
         // ...
         return params;
