@@ -1,7 +1,5 @@
 var KoaNeo4jApp = require('koa-neo4j');
 
-console.log(KoaNeo4jApp);
-
 var app = new KoaNeo4jApp({
     apis: [
         {

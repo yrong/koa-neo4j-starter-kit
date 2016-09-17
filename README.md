@@ -10,7 +10,7 @@ npm install
 ```
 
 ### Usage
-To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl, user and password) in [server.js](https://github.com/satratech/koa-neo4j-example/blob/master/server.js#L18), then:
+To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl, user and password) in [server.js](https://github.com/satratech/koa-neo4j-example/blob/master/server.js#L16), then:
 ```bash
 npm start
 ```
