@@ -41,6 +41,8 @@ app.defineAPI({
 // Authentication and roles can be configured either by
 // supplying an `authentication` key in options passed to KoaNeo4jApp's constructor
 // or by `app.configureAuthentication`
+// After configuring authentication, a POST to /auth with {"username":"admin", "password":"test"}
+// returns a token and user object as described in `userCypherQueryFile` (minus password)
 
 app.configureAuthentication({
     userCypherQueryFile: './cypher/user.cyp',
@@ -50,6 +52,8 @@ app.configureAuthentication({
 });
 
 // Routes can be guarded by role restriction using `allowedRoles`
+// hence any request to this route is rejected unless it comes with Authorization header
+// with token obtained from /auth by whomever is an `admin` (as described in `rolesCypherQueryFile`)
 // Another lifecycle hook is `postProcess` which is demonstrated below
 
 app.defineAPI({
