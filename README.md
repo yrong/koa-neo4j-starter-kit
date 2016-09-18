@@ -15,4 +15,5 @@ To run the server, you need a running Neo4j instance. Set your Neo4j config (bol
 npm start
 ```
 Server is now live at `http://localhost:3000`
+
 To learn how it works, read through comments in [server.js](https://github.com/satratech/koa-neo4j-example/blob/master/server.js)
