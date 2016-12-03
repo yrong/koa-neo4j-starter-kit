@@ -1,5 +1,5 @@
 {
-  "name": "koa-neo4j-example",
+  "name": "koa-neo4j-starter-kit",
   "version": "0.1.0",
   "description": "Example for koa-neo4j package",
   "main": "server.js",
