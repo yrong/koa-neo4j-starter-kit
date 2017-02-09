@@ -1,4 +1,4 @@
-// Takses {id}, returns roles
+// Takses $id, returns roles
 WITH ["Reviewer", "Author"] AS labels, {id: {id}, user_name: "admin"} as user
 // Above serves as mock, should be gathered from real data
 WITH

@@ -1,14 +1,47 @@
 {
   "name": "koa-neo4j-starter-kit",
   "version": "0.1.0",
-  "description": "Example for koa-neo4j package",
+  "description": "A blueprint for creating koa-neo4j-based web servers",
   "main": "server.js",
+  "jsnext:main": "./src/index.js",
   "scripts": {
-    "start": "node $NODE_DEBUG_OPTION server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/eslint ./src --fix",
+    "dev": "./node_modules/.bin/webpack --progress --colors --watch",
+    "build": "./node_modules/.bin/webpack",
+    "start": "npm run build && DEV=1 node $NODE_DEBUG_OPTION main.js",
+    "serve": "npm run build && node server.js"
   },
   "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
   "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-es2015-for-of": "^6.8.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
+    "babel-plugin-transform-es2015-parameters": "^6.11.4",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.14.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-plugin-transform-strict-mode": "^6.11.3",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "coffee-loader": "^0.7.2",
+    "eslint": "^3.3.1",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "webpack": "^2.1.0-beta.27"
+  },
   "dependencies": {
     "koa-neo4j": "^1.0.0"
   }
