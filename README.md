@@ -10,7 +10,7 @@ npm install
 ```
 
 ## Usage
-To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl, user and password) in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/settings.js#L4)
+To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl, user and password) in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L4)
 
 For development:
 
@@ -18,7 +18,7 @@ For development:
 npm start
 ```
 
-For production, you need to set environment variables referred by [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/settings.js#L4)
+For production, you need to set environment variables referred by [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L4)
 (either in your shell or ideally in a docker-compose conf), then simply:
 
 ```bash
@@ -28,8 +28,8 @@ npm serve
 ## Best practices
 
 - Keep related logic be `.js` or `.cyp` in the same directory (`user`, `articles` and `noncypher` directories are examples).
-- Import the logic that you want to be included in the bundle in [index.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/index.js#L3)
-- Put all your configurable objects in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/settings.js)
+- Import the logic that you want to be included in the bundle in [index.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/index.js#L3)
+- Put all your configurable objects in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js)
 
 ## License
 
