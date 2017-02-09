@@ -18,7 +18,7 @@ For development:
 npm start
 ```
 
-For production, you need to set environment variables referred by [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L4)
+For production, you need to set environment variables referred by [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js)
 (either in your shell or ideally in a docker-compose conf), then simply:
 
 ```bash
