@@ -1,7 +1,9 @@
 # koa-neo4j-starter-kit
+
 A blueprint for creating web servers powered by [koa-neo4j](https://github.com/assister-ai/koa-neo4j)
 
 ## Install
+
 Assuming [Node version 4+ and NPM are installed](https://nodejs.org/en/download/package-manager/):
 ```bash
 git clone https://github.com/assister-ai/koa-neo4j-starter-kit.git
@@ -10,7 +12,8 @@ npm install
 ```
 
 ## Usage
-To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl, user and password) in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L4)
+
+To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl and password) in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L27)
 
 For development:
 
