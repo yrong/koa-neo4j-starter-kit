@@ -27,7 +27,8 @@ npm run serve
 
 ## Best practices
 
-- Keep related logic be `.js` or `.cyp` in the same directory (`user`, `articles` and `noncypher` directories are examples).
+- Configure your development environment, located at the end of [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L25)
+- Keep related logic be `.js` or `.cyp` in the same directory (`src/user`, `src/articles` and `src/noncypher` directories are examples).
 - Import the logic that you want to be included in the bundle in [index.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/index.js#L3)
 - Put all your configurable objects in [settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js)
 

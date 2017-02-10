@@ -22,8 +22,9 @@ export const ports = {
     app: parseInt(process.env.APP_PORT)
 };
 
+// configs for development mode
 if (process.env.DEV) {
     neo4j.boltUrl = 'bolt://localhost';
-    neo4j.password = 'k';
+    neo4j.password = 'neo4j';
     ports.app = 3000;
 }
