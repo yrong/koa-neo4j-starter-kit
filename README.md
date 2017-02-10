@@ -22,7 +22,7 @@ For production, you need to set environment variables referred by [settings.js](
 (either in your shell or ideally in a docker-compose conf), then simply:
 
 ```bash
-npm serve
+npm run serve
 ```
 
 ## Best practices
