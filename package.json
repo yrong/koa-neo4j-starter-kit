@@ -9,7 +9,7 @@
     "dev": "./node_modules/.bin/webpack --progress --colors --watch",
     "build": "./node_modules/.bin/webpack",
     "start": "npm run build && DEV=1 node $NODE_DEBUG_OPTION main.js",
-    "serve": "npm run build && node server.js"
+    "serve": "npm run build && node main.js"
   },
   "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
   "license": "MIT",
