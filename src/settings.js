@@ -20,12 +20,11 @@ export const cors = {
 };
 
 export const ports = {
-    app: parseInt(process.env.APP_PORT)
+    app: parseInt(process.env.APP_PORT) || 3000
 };
 
 // configs for development mode
 if (process.env.DEV) {
     neo4j.boltUrl = 'bolt://localhost';
     neo4j.password = 'neo4j';
-    ports.app = 3000;
 }
