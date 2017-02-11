@@ -1,10 +1,11 @@
-import KoaNeo4jApp from 'koa-neo4j';
-import {neo4j, authentication, cors} from './settings';
+import app from './app';
+import {ports} from './settings';
+// import your logic files/modules below to be included in the bundle
+import './article';
+import './noncypher';
 
-const app = new KoaNeo4jApp({
-    neo4j: neo4j,
-    authentication: authentication,
-    cors: cors
-});
+const appListening = new Promise(resolve => app.listen(ports.app, resolve))
+    .then(() => console.log(`App listening on port ${ports.app}.`))
+    .then(() => app);
 
-export default app;
+export {appListening};

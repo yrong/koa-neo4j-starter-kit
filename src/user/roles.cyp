@@ -1,5 +1,5 @@
-// Takses $id, returns roles
-WITH ["Reviewer", "Author"] AS labels, {id: {id}, user_name: "admin"} as user
+// Takes $id, returns roles
+WITH ["Reviewer", "Author"] AS labels, {id: $id} AS user, {username: "admin"} AS userAccount
 // Above serves as mock, should be gathered from real data
 WITH
 collect(
@@ -14,7 +14,7 @@ collect(
 ) +
 collect(
     CASE
-        WHEN user.user_name="admin" THEN "admin" ELSE NULL
+        WHEN userAccount.username="admin" THEN "admin" ELSE NULL
     END
 ) AS roles
 RETURN {roles: roles}

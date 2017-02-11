@@ -1,4 +1,4 @@
-import app from './../server';
+import app from '../app';
 
 import {fetchOne, convertToPreProcess, errorOnEmptyResult} from 'koa-neo4j/postprocess';
 import {logValues} from 'koa-neo4j/debug';
@@ -23,10 +23,7 @@ const coolProcedure = app.createProcedure({
         params.result = params.coolInputParam | 'cool';
         return params;
     },
-    postProcess: [
-        convertToPreProcess('coolParam'),
-        logValues
-    ]
+    postProcess: convertToPreProcess('coolParam')
 });
 
 // do fancy stuff with lifecycle hooks
@@ -38,18 +35,21 @@ app.defineAPI({
         async params => {
             params.coolComplete = await coolProcedure({coolInputParam: 'hot'});
             params.result = [
-                Promise.resolve('secret of universe, life and everything'),
+                Promise.resolve('Answer to the Ultimate Question of Life, the Universe, and Everything'),
                 Promise.resolve(42)
             ];
             return params;
-        }
+        },
+        logValues
     ],
     postProcess: [
+        logValues,
         errorOnEmptyResult('not cool', 501),
         fetchOne,
         (result, params) => {
             return {result, params};
-        }
+        },
+        logValues
     ]
 });
 

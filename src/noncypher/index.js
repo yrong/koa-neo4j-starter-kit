@@ -1,4 +1,4 @@
-import app from './../server';
+import app from '../app';
 
 
 // `app.router` is a standard koa-router which could be utilised to expand server's functionality

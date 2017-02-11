@@ -1,4 +1,4 @@
-// place all your config files (e.g. mail server, etc.) in this file
+// place all your configuration objects (e.g. mail server credentials, etc.) in this file
 
 export const neo4j = {
     boltUrl: `bolt://${process.env.NEO4J}`,
@@ -14,6 +14,7 @@ export const authentication = {
     secret: 'a_strong_secret'
 };
 
+// https://github.com/koajs/cors/tree/v2.x
 export const cors = {
     credentials: true
 };
