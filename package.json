@@ -1,7 +1,7 @@
 {
   "name": "koa-neo4j-starter-kit",
   "version": "0.1.0",
-  "description": "A blueprint for creating web servers powered by koa-neo4j",
+  "description": "A blueprint for creating RESTful web servers with koa-neo4j",
   "main": "server.js",
   "jsnext:main": "./src/index.js",
   "scripts": {
