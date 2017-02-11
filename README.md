@@ -13,7 +13,7 @@ npm install
 
 ## Usage
 
-To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl and password) in [src/settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L27)
+To run the server, you need a running Neo4j instance. Set your Neo4j config (boltUrl and password) in [src/settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L28)
 
 For development:
 
@@ -31,9 +31,9 @@ npm run serve
 ## Best practices
 
 - Put all your configuration objects in [src/settings.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js)
-and configure your [development environment](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L25)
+and configure your [development environment](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/settings.js#L26)
 - Keep related logic be `.js` or `.cyp` in the same directory (`src/user`, `src/articles` and `src/noncypher` directories are examples).
-- Import the logic that you want to be included in the bundle at [src/server.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/index.js#L3)
+- Import the logic that you want to be included in the bundle at [src/server.js](https://github.com/assister-ai/koa-neo4j-starter-kit/blob/master/src/server.js#L3)
 
 ## License
 
