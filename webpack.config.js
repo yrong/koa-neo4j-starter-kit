@@ -19,7 +19,9 @@ const plugins = [];
 
 const config = {
     target: 'node',
-    entry: './src/server.js',
+    entry: {
+        './server': './src/server.js'
+    },
     devtool: 'source-map',
     output: {
         path: './',
