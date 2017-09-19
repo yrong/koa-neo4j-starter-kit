@@ -6,7 +6,7 @@ import {logValues} from 'koa-neo4j/debug';
 app.defineAPI({
     method: 'GET',
     route: '/articles/:skip/:limit',
-    cypherQueryFile: './src/articles/articles.cyp'
+    cypherQueryFile: './src/article/articles.cyp'
 });
 
 app.defineAPI({
@@ -14,7 +14,27 @@ app.defineAPI({
     allowedRoles: ['admin'],
     method: 'GET',
     route: '/articles/restricted/:skip/:limit',
-    cypherQueryFile: './src/articles/articles.cyp'
+    cypherQueryFile: './src/article/articles.cyp'
+});
+
+// params.result
+app.defineAPI({
+    method: 'GET',
+    route: '/params/result',
+    preProcess: params => {
+        params.result = 42;
+        return params;
+    }
+});
+
+// params.cypher
+app.defineAPI({
+    method: 'GET',
+    route: '/params/cypher',
+    preProcess: params => {
+        params.cypher = 'RETURN 42';
+        return params;
+    }
 });
 
 // create reusable blocks of backend code with procedures

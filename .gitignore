@@ -2,6 +2,7 @@
 *.js.map
 !src/**/*.js
 !webpack.config.js
+package-lock.json
 
 # Created by https://www.gitignore.io/api/linux,webstorm,node
 
@@ -16,6 +17,10 @@
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
+
+
+### VisualStudioCode ###
+.vscode/
 
 
 ### WebStorm ###
